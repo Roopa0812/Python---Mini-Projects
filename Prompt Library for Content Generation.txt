@@ -1,0 +1,177 @@
+Prompt Library for Content Generation
+
+Mini Project | Prompt Engineering
+
+
+
+
+Prompt #1: Social Media Caption Writer
+Use Case:
+
+Writing captions for Instagram or LinkedIn posts — specifically for a personal brand or small business trying to grow organically.
+Techniques Used:
+
+Role Prompting + Constraints + Output Format
+Template:
+You are a social media writer who writes captions that feel real
+and actually get people to engage — not the usual generic stuff.
+
+Platform: {platform}
+What the post is about: {topic}
+Brand voice: {brand_voice}  (e.g. casual, witty, no-fluff)
+Goal of this post: {goal}  (e.g. get comments, drive saves, get follows)
+
+Rules:
+- The first line has to make someone stop scrolling
+- Keep the main copy under 150 characters
+- Add 3 to 5 hashtags at the end
+- Close with a question or CTA that actually invites a reply
+- Don't start with 'Exciting news!' or 'We are thrilled to share'
+Sample Output (tested in ChatGPT):
+
+Topic: LinkedIn post about failing my first startup
+I lost 8 months and ₹2 lakhs building something nobody asked for.
+
+The biggest lesson wasn't about the product.
+It was about the questions I never asked before writing a single line of code.
+
+What's the most expensive mistake you've made building something?
+
+#startuplife #entrepreneurship #productthinking #buildinpublic #founder
+Iteration (v1 → v2):
+
+v1: I just asked for "a LinkedIn post about startup failure" with no other instructions. The output started with "Exciting announcement..." and was like 270 characters — way too long, felt like a press release not a real post.
+v2: I added the platform, banned the cliche openers, set a 150 char limit, and told it the goal was to get comments. The output became way more personal and direct. It opened with a specific number (which grabs attention) and ended with a real question people would actually reply to.
+
+
+
+
+
+
+
+
+
+Prompt #2: E-Commerce Product Description
+Use Case:
+
+Writing product descriptions for online store listings (like Shopify or Amazon) that focus on benefits over specs.
+Techniques Used:
+
+Role Prompting + Few-Shot Examples + Chain-of-Thought + Constraints
+Template:
+You are a copywriter who writes product descriptions for e-commerce brands.
+Your job is to make someone feel like this product was made for them.
+
+Product name: {product_name}
+What it does: {product_function}
+Who it's for: {target_buyer}
+Top 3 features: {features}
+Price: {price}
+
+Before writing, think through this:
+1. What is the buyer's main frustration that this product solves?
+2. What does their life look like after using it?
+3. What one line would make them feel 'this is literally for me'?
+
+Style reference (few-shot):
+Example 1:
+  'Tired of cords everywhere? The SlimCharge sits flat on your desk,
+   charges 3 devices at once, and just disappears into the background.'
+Example 2:
+  'Not just a planner — a system. Built for people who think in systems,
+   not sticky notes.'
+
+Then write:
+- Headline: 1 line, benefit-first, max 12 words
+- Body: 3-4 punchy sentences, max 80 words
+- Feature bullets: exactly 3 bullets, each under 12 words
+
+Constraints:
+- No words like 'best', 'world-class', 'revolutionary'
+- Don't open with the product name
+- Use 'you' to speak directly to the buyer
+Sample Output (tested in ChatGPT):
+
+Product: noise-cancelling headphones for college students | Price: ₹2,499
+Headline: Finally study in peace — even in a hostel.
+
+You know that moment when your concentration breaks just as you were
+getting into it? These headphones block out your roommate, the corridor,
+and the guy selling chai outside — so your focus stays where it belongs.
+Comfortable enough for a 4-hour session. Cheap enough you won't stress
+about leaving them in the library.
+
+- 35dB noise cancellation built for loud shared spaces
+- 30-hour battery, USB-C charging — full charge in 90 min
+- Folds flat and fits inside your regular college bag
+Iteration (v1 → v2):
+
+v1: asked for "a product description for noise-cancelling headphones for students" with nothing else. Output opened with "Introducing the StudyPro 3000 — a revolutionary..." and basically listed the specs. It read like a manual.
+v2: added the few-shot style examples and the 3 thinking steps before writing. That changed things a lot — the model figured out the actual pain point (hostel noise) and wrote to that instead of just describing features. The 'you' framing made it feel way more personal too.
+
+
+
+
+
+
+
+
+
+
+Prompt #3: YouTube Video Script Intro
+Use Case:
+
+Writing the opening 60 seconds of a YouTube script — the part where most viewers decide to stay or leave.
+Techniques Used:
+
+Role Prompting + Chain-of-Thought + Constraints + Output Format
+Template:
+You are a YouTube scriptwriter who specialises in video intros.
+Your job is to write the first 60 seconds so the viewer has no reason
+to click away.
+
+Video topic: {video_topic}
+Channel niche: {channel_niche}
+Who's watching: {target_viewer}
+What this video promises: {main_promise}
+Tone: {tone}  (e.g. casual, informative, slightly intense)
+
+Think through this before writing:
+1. What will the viewer regret missing if they click away?
+2. What's a surprising or counterintuitive way to open?
+3. What payoff can you tease without giving it away?
+
+Write the intro in 3 parts:
+HOOK (0-10s): One strong statement or question. Max 2 sentences.
+SETUP (10-40s): Frame the problem or context. Max 4 sentences.
+PROMISE (40-60s): Tell them what they'll learn/get. Max 2 sentences.
+
+Constraints:
+- Do NOT open with 'Hey guys' or 'Welcome back'
+- Write it as spoken dialogue, not essay writing
+- No filler — every sentence has to do something
+- Total words: 100 to 130
+Sample Output (tested in ChatGPT):
+
+Topic: Why sleeping 8 hours still leaves you tired | Niche: health & productivity
+[HOOK]
+Eight hours of sleep and you still wake up exhausted.
+That's not a sleep problem — that's a sleep quality problem.
+
+[SETUP]
+Most people track hours. Almost nobody tracks sleep cycles.
+Your body doesn't care if you slept from 11 to 7.
+It cares whether you completed 90-minute cycles without being interrupted —
+and most of us don't, even when we think we do.
+
+[PROMISE]
+In the next 8 minutes I'll show you exactly why your alarm is waking
+you up at the worst possible moment — and one small change that fixes it tonight.
+Iteration (v1 → v2):
+
+v1: asked for "a YouTube intro about sleep quality" and got exactly the kind of opener every viewer skips. Started with "Hey guys, welcome back to the channel! So today we're going to be talking about sleep..." — 190 words and it still hadn't said anything useful.
+v2: added the 3-part structure, banned the hey guys opener, forced spoken-word style and capped it at 130 words. The output now opens with a direct challenge to what the viewer already believes, which is a way better hook. The PROMISE section also teases the solution without just giving everything away upfront.
+
+
+
+All 3 prompts were tested in ChatGPT. Outputs above are real responses, pasted directly.
